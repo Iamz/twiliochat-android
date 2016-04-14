@@ -1,11 +1,5 @@
 package com.twilio.twiliochat.ipmessaging;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
@@ -28,6 +22,12 @@ import com.twilio.twiliochat.application.TwilioChatApplication;
 import com.twilio.twiliochat.interfaces.FetchTokenListener;
 import com.twilio.twiliochat.interfaces.LoginListener;
 import com.twilio.twiliochat.util.SessionManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class IPMessagingClientManager implements IPMessagingClientListener {
   private final String TOKEN_KEY = "token";
@@ -144,7 +144,7 @@ public class IPMessagingClientManager implements IPMessagingClientListener {
     JSONObject obj = new JSONObject(getTokenRequestParams());
     String requestUrl = getStringResource(R.string.token_url);
     JsonObjectRequest jsonObjReq =
-        new JsonObjectRequest(Method.POST, requestUrl, obj, new Response.Listener<JSONObject>() {
+        new JsonObjectRequest(Method.GET, requestUrl, obj, new Response.Listener<JSONObject>() {
 
           @Override
           public void onResponse(JSONObject response) {
