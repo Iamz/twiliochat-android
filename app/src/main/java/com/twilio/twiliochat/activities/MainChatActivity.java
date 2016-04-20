@@ -27,8 +27,10 @@ import android.widget.TextView;
 
 import com.twilio.ipmessaging.Channel;
 import com.twilio.ipmessaging.Constants;
+import com.twilio.ipmessaging.ErrorInfo;
 import com.twilio.ipmessaging.IPMessagingClientListener;
 import com.twilio.ipmessaging.TwilioIPMessagingSDK;
+import com.twilio.ipmessaging.UserInfo;
 import com.twilio.twiliochat.R;
 import com.twilio.twiliochat.application.TwilioChatApplication;
 import com.twilio.twiliochat.fragments.MainChatFragment;
@@ -467,14 +469,21 @@ public class MainChatActivity extends AppCompatActivity implements IPMessagingCl
   }
 
   @Override
-  public void onChannelChange(Channel channel) {}
+  public void onError(ErrorInfo errorInfo) {
+
+  }
 
   @Override
-  public void onError(int i, String s) {}
+  public void onChannelChange(Channel channel) {}
 
   @Override
   public void onAttributesChange(String s) {}
 
   @Override
   public void onChannelHistoryLoaded(Channel channel) {}
+
+  @Override
+  public void onUserInfoChange(UserInfo userInfo) {
+
+  }
 }

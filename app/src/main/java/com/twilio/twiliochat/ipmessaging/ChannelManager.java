@@ -15,7 +15,9 @@ import com.twilio.ipmessaging.Channel;
 import com.twilio.ipmessaging.Channel.ChannelType;
 import com.twilio.ipmessaging.Channels;
 import com.twilio.ipmessaging.Constants;
+import com.twilio.ipmessaging.ErrorInfo;
 import com.twilio.ipmessaging.IPMessagingClientListener;
+import com.twilio.ipmessaging.UserInfo;
 import com.twilio.twiliochat.R;
 import com.twilio.twiliochat.application.TwilioChatApplication;
 import com.twilio.twiliochat.interfaces.LoadChannelListener;
@@ -196,10 +198,8 @@ public class ChannelManager implements IPMessagingClientListener {
   }
 
   @Override
-  public void onError(int i, String s) {
-    if (listener != null) {
-      listener.onError(i, s);
-    }
+  public void onError(ErrorInfo errorInfo) {
+
   }
 
   @Override
@@ -214,6 +214,11 @@ public class ChannelManager implements IPMessagingClientListener {
     if (listener != null) {
       listener.onChannelHistoryLoaded(channel);
     }
+  }
+
+  @Override
+  public void onUserInfoChange(UserInfo userInfo) {
+
   }
 
   private Handler setupListenerHandler() {
